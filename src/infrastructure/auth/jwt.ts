@@ -4,6 +4,7 @@ import { ExtractJwt, Strategy } from "passport-jwt";
 import { PrismaService } from "../prisma/prisma.service";
 
 export const jwtSecret = "zjP9h6ZI5LoSKCRj";
+// variables d'environnement, ou fichier de config, pas de hardcode
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, "jwt") {

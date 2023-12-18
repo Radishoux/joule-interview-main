@@ -10,5 +10,6 @@ export class EmailService {
     ) => {
         // TODO: Choose an email provider and an email to each receiver
         console.log({ emailSubject, emailBody, receivers });
+        // nodeMailer.sendMail({ emailSubject, emailBody, receivers }); ?
     };
 }

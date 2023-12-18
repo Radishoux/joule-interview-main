@@ -21,6 +21,9 @@ export class ArticlesService {
     };
 
     publish = (id: number) => {
+      // validateUserCanMutateArticle(persistedArticle, userId); ??
+      // verifier si l'utilisateur est bien l'auteur de l'article, qu'il ait le droit de le publier
+
         this.prisma.article
             .update({
                 where: { id },

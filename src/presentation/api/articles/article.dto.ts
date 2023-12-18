@@ -102,3 +102,8 @@ export class UpdateArticleRequest
         };
     };
 }
+
+
+// nombreux problemes avec la description de l'article :
+// elle est nullable l20, mais non required l61, donc elle peut etre undefined,
+// il faut donc la ?.verifier (optional chaining) ou attendre un potentiel undef ?? l80

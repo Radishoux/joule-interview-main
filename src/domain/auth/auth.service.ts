@@ -20,6 +20,8 @@ export class AuthService {
             where: { email: email },
         });
 
+        // peut-etre eviter de donner trop d'infos sur l'erreur, pour eviter de donner des infos sur les utilisateurs
+        // un attaquant pourrait bruteforcer les mails jusqu'a trouver ceux valide et ainsi avoir tous les mails de nos clients
         if (!user) {
             throw new NotFoundException(`No user found for email: ${email}`);
         }
@@ -27,6 +29,8 @@ export class AuthService {
         if (!isPasswordValid) {
             throw new UnauthorizedException("Invalid password");
         }
+
+        // et limiter le nombre de tentatives de connexion a l'account ou prevenir l'utilisateur par mail apres X tentatives infructueuses
 
         return {
             accessToken: this.jwtService.sign(

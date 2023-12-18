@@ -10,7 +10,7 @@ import { JwtStrategy, jwtSecret } from "./jwt";
         PassportModule,
         JwtModule.register({
             secret: jwtSecret,
-            signOptions: { expiresIn: "10d" },
+            signOptions: { expiresIn: "10d" }, // maybe a bit much?
         }),
     ],
     providers: [JwtStrategy],

@@ -10,6 +10,8 @@ export class NotificationService {
         private prisma: PrismaService,
     ) {}
 
+    // pas tres fan du nom de la fonction, on a l'impression que c'est l'article qui est notifié
+    // suggestion : notifyFollowersArticlePub
     notifyPublishedArticle = async (article: Article) => {
         const author = await this.prisma.user.findUnique({
             where: { id: article.authorId },

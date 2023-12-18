@@ -6,3 +6,6 @@
 */
 -- AlterTable
 ALTER TABLE "User" ADD COLUMN     "password" TEXT NOT NULL;
+
+
+--  pourquoi l'add apres?
