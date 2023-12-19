@@ -1,17 +1,17 @@
-# Joule interview
+# Joule Interview
 
-This repository aims to emulate a blog post application. It is imperfect on purpose, we'd like your comments on it !<br/>
-Please see the exercise as if you joined a team that created this repository, which is now used like this in production. What would you do with it ?<br/>
+This repository aims to emulate a blog post application. It is imperfect on purpose; we'd like your comments on it!<br/>
+Please see the exercise as if you joined a team that created this repository, which is now used like this in production. What would you do with it?<br/>
 <br/>
-We would advise spending between 60 and 120 minutes on this exercise, and try answering the following questions:<br/>
--What good practices do you see that you would reuse on other NestJS projects ?<br/>
--What would you refactor in the code to improve its **quality** ?<br/>
--What would you bring to improve the **CI/CD** (in order to reduce the number of bugs in prod) ?<br/>
--What would you do to improve the **DevX** ?<br/>
--What would you do to improve the **security** of the application ?<br/>
--If you had to add a Commenting feature on articles, how would you do it ? (Do not hesitate to write code !)<br/>
+We would advise spending between 60 and 120 minutes on this exercise and try answering the following questions:<br/>
+- What good practices do you see that you would reuse on other NestJS projects?<br/>
+- What would you refactor in the code to improve its **quality**?<br/>
+- What would you bring to improve the **CI/CD** (in order to reduce the number of bugs in prod)?<br/>
+- What would you do to improve the **DevX**?<br/>
+- What would you do to improve the **security** of the application?<br/>
+- If you had to add a Commenting feature on articles, how would you do it? (Do not hesitate to write code!)<br/>
 
-# Installation & setup
+# Installation & Setup
 
 ```shell
 npm install
@@ -19,15 +19,15 @@ npm install
 
 ## Prisma & DB
 
-### databse
+### Database
 
-To start the database, you can use docker
+To start the database, you can use Docker
 
 ```shell
 docker compose up database
 ```
 
-### migrations
+### Migrations
 
 Apply migrations to the database with the following command
 
@@ -35,17 +35,17 @@ Apply migrations to the database with the following command
 npm run migrate
 ```
 
-### seed
+### Seed
 
-You can then populate the database with the seeds we created !
+You can then populate the database with the seeds we created!
 
 ```shell
 npm run seed
 ```
 
-# Running the app
+# Running the App
 
-Once you have setup the database and applied the migrations
+Once you have set up the database and applied the migrations
 
 ```shell
 npm run start
@@ -53,8 +53,8 @@ npm run start
 
 # Login
 
-To login on the app in the dev environment you can call the login endpoint with the credentials found in the `prisma/seed.ts` file,
-and then use the `accessToken` provided as a Bearer Token. With swagger you can use this token to login.
+To log in on the app in the dev environment, you can call the login endpoint with the credentials found in the `prisma/seed.ts` file,
+and then use the `accessToken` provided as a Bearer Token. With Swagger, you can use this token to log in.
 
 # Test
 
@@ -68,9 +68,9 @@ npm run test:e2e
 
 # Prisma
 
-### Generate new migrations
+### Generate New Migrations
 
-When changing the data model you should run the following command to generate and apply the associated migration
+When changing the data model, you should run the following command to generate and apply the associated migration
 
 ```shell
 npm run migrate -- --name "<NAME>"
@@ -89,4 +89,4 @@ docker compose up
 
 # Drone
 
-We use drone for our CI/CD. We have two pipelines, one running at every new commit on a `pull_request`, and one whenever there is a push on `dev` or `main` branch
+We use Drone for our CI/CD. We have two pipelines, one running at every new commit on a `pull_request`, and one whenever there is a push on `dev` or `main` branch
