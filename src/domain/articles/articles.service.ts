@@ -74,6 +74,15 @@ export class ArticlesService {
         });
     };
 
+    // comment = async (id: number, comment: string, userId: number) => {
+    //     const article = await this.prisma.article.findUnique({ where: { id } });
+    //     validateUserCanMutateArticle(article, userId);
+    //     return this.prisma.article.update({
+    //         where: { id },
+    //         data: { comments: [...article.comments, comment] },
+    //     });
+    // };
+
     remove = async (id: number, userId: number) => {
         const article = await this.prisma.article.findUnique({ where: { id } });
         validateUserCanMutateArticle(article, userId);

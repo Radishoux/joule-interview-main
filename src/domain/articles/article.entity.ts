@@ -11,7 +11,7 @@ export type Article = {
   createdAt: Date;
   updatedAt: Date;
 
-  comments?: Comment[];
+  comments?: { commenter: number, content: string}[];
 };
 
 export type MutableArticle = Mutable<Omit<Article, "authorId">>;
