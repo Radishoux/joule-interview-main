@@ -90,3 +90,6 @@ docker compose up
 # Drone
 
 We use Drone for our CI/CD. We have two pipelines, one running at every new commit on a `pull_request`, and one whenever there is a push on `dev` or `main` branch
+
+
+<!-- bon point le readme complet (meme si avec quelques fautes) -->

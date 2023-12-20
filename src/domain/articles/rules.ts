@@ -12,3 +12,5 @@ export const validateUserCanMutateArticle = (
         throw new Error("User cannot mutate article");
     }
 };
+
+// bon point, un throw new Error est toujours mieux qu'un simple return false

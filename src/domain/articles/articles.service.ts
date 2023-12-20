@@ -19,6 +19,7 @@ export class ArticlesService {
         if (createdArticle.published)
             this.notificationService.notifyPublishedArticle(createdArticle);
     };
+    // bon point, le create est async et gagne du temps en ne notifiant que si l'article est publié
 
     publish = (id: number) => {
       // validateUserCanMutateArticle(persistedArticle, userId); ??
@@ -39,12 +40,14 @@ export class ArticlesService {
             where: { published: true },
         });
     };
+    // le findAll await le retour de findmany
 
     findMine = (authorId: number): Promise<Article[]> => {
         return this.prisma.article.findMany({
             where: { authorId },
         });
     };
+    // alors qu'ici pas d'await, on retourne donc la promesse ?
 
     findDrafts = (authorId: number) => {
         return this.prisma.article.findMany({

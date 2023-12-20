@@ -23,3 +23,5 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
   },
 };
+
+// bonnes pratiques un eslint !

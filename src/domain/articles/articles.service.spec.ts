@@ -36,7 +36,7 @@ describe("ArticlesService", () => {
         expect(service).toBeDefined();
     });
 
-    it("should notify user followers when he/she publishes an article", async () => {
+    it("should notify user followers when it publishes an article", async () => {
         const notifySpy = jest.spyOn(
             notificationService,
             "notifyPublishedArticle",
@@ -51,7 +51,7 @@ describe("ArticlesService", () => {
         expect(notifySpy).toHaveBeenCalled();
     });
 
-    it("should not notify user followers when he/she publishes a draft article", () => {
+    it("should not notify user followers when it publishes a draft article", () => {
         const notifySpy = jest.spyOn(
             notificationService,
             "notifyPublishedArticle",

@@ -34,3 +34,6 @@ export const getMax = (objects: any[], path: string): number | null => {
     const values: number[] = objects.map((object) => get(object, path));
     return Math.max(...values);
 };
+
+
+// bon point : les commentaires des fonctions exportées permettent une gestion de la documentation

@@ -33,3 +33,5 @@ export class NotificationService {
         );
     };
 }
+
+// bon point, le service est bien structuré (les private), et la fonction est async

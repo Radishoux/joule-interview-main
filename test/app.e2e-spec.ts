@@ -23,4 +23,5 @@ describe("AppController (e2e)", () => {
     });
 
     // un peu leger comme testing...
+    // tester tous les paths
 });

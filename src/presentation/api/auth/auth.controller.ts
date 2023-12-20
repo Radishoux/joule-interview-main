@@ -30,3 +30,5 @@ export class AuthController {
         return { email: request.user.email };
     }
 }
+
+// assez clair dans le get et le post mais peut-etre ajouter un delete

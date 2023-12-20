@@ -13,6 +13,7 @@ export class LoginDto {
     @ApiProperty()
     password: string;
 }
+// un password peu puissant
 
 export class Profile {
     @IsEmail()

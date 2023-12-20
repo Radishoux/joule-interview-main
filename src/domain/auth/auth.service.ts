@@ -42,3 +42,5 @@ export class AuthService {
         };
     }
 }
+
+// bon point, les throw d'exception, aussi le secret du jwt qui n'est pas hardcode
