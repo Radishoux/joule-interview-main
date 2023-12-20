@@ -11,6 +11,7 @@ interface ModelTest<T> {
     create?: ({ data }: { data: Mutable<T> }) => T;
     findUnique?: ({ where: { id } }) => T;
 }
+// autant test toutes les fonctions non ? create, findUnique, update, delete
 
 export interface PrismaServiceTest {
     user: ModelTest<User>;
@@ -56,6 +57,7 @@ const UserModel: ModelTest<User> = {
         return UserModel.data.filter((user) => user.id === id)[0];
     },
 };
+// encore une fois, autant tester toutes les fonctions non ? create, findUnique, update, delete
 
 const ArticleModel: ModelTest<Article> = {
     data: [],
@@ -80,14 +82,23 @@ const ArticleModel: ModelTest<Article> = {
         return article;
     },
 };
+// encore une fois, autant tester toutes les fonctions non ? create, findUnique/many, update, delete
 
 export const PrismaTest: PrismaServiceTest = {
     user: UserModel,
     article: ArticleModel,
     loadUserData: UserModel.loadData.common,
-    // TODO: Investigate why this is required.It seems Jets does not recreate the PrismaTest object for each new test run, hence not cleaning up the database.
+    // TODO: Investigate why this is required.It seems Jest does not recreate the PrismaTest object for each new test run, hence not cleaning up the database.
     cleanup: () => {
         UserModel.data = [];
         ArticleModel.data = [];
     },
 };
+
+// Je ne maîtrise pas assez Prisma, donc j'aurais du mal à dire, mais après avoir consulté la documentation :
+// https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing
+// il semble que la réinitialisation doit être effectuée du côté beforeEach et afterEach.
+
+// Il pourrait également être utile de diviser le tout en plusieurs fichiers de tests sectorisés,
+// de sorte que la CI/CD puisse effectuer des tests sectorisés par rapport au commit le tout en parallèle.
+// (un fichier de test pour les utilisateurs, un fichier de test pour les articles, un fichier de test pour les commentaires, etc...)

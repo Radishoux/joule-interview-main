@@ -9,3 +9,4 @@ ALTER TABLE "User" ADD COLUMN     "password" TEXT NOT NULL;
 
 
 --  pourquoi l'add apres?
+-- le pass est bien un text not null, le hash computed client side

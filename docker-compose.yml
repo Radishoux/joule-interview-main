@@ -2,10 +2,10 @@ version: "3.8"
 services:
     database:
         image: postgres:13.5
-        restart: always
+        restart: always # limiter les redémarrages, ne pas boucler : unless-stopped
         environment:
             - POSTGRES_USER=app
-            - POSTGRES_PASSWORD=d!@O9p7.4Fg2a
+            - POSTGRES_PASSWORD=d!@O9p7.4Fg2a # pas de hardcode des passwords
         volumes:
             - database:/var/lib/postgresql/data
         ports:
@@ -21,6 +21,10 @@ services:
             - database
         ports:
             - "3000:3000"
+# si le backend n'est utilisé que par le docker peut-etre ne pas exposer le port?
 
 volumes:
     database:
+# renommer le volume pour quelque chose de plus approprié (que tout ne s'appelle pas database)
+
+# docker recommande aussi d'utiliser des networks pour isoler les services
