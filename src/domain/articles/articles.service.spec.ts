@@ -47,6 +47,7 @@ describe("ArticlesService", () => {
             title: "A nice title",
             published: true,
             authorId: 1,
+            comments: [],
         });
         expect(notifySpy).toHaveBeenCalled();
     });
@@ -62,6 +63,7 @@ describe("ArticlesService", () => {
             title: "A draft title",
             published: false,
             authorId: 1,
+            comments: [],
         });
         expect(notifySpy).not.toHaveBeenCalled();
     });

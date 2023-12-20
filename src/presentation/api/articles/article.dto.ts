@@ -3,6 +3,7 @@ import {
     Article,
     MutableArticle,
 } from "../../../domain/articles/article.entity";
+import { Comment } from "../../../domain/comments/comment.entity";
 import { RequestDto, ResponseDto } from "../dto";
 import { WithOptional } from "../../../utils/types";
 
@@ -30,6 +31,9 @@ export class ArticleDto implements Article {
 
     @ApiProperty()
     updatedAt: Date;
+
+    @ApiProperty({ required: false, default: []})
+    comments: Comment[] = [];
 }
 
 export class ArticleResponse implements ResponseDto<Article, ArticleDto> {
@@ -47,6 +51,8 @@ export class ArticleResponse implements ResponseDto<Article, ArticleDto> {
             published: this.data.published,
             createdAt: this.data.createdAt,
             updatedAt: this.data.updatedAt,
+
+            comments: this.data.comments ?? [],
         };
     };
 }
@@ -65,6 +71,9 @@ export class CreateArticleDto
 
     @ApiProperty({ required: false, default: false })
     published?: boolean = false;
+
+    @ApiProperty({ required: false, default: []})
+    comments: Comment[] = [];
 }
 
 export class CreateArticleRequest
@@ -80,6 +89,7 @@ export class CreateArticleRequest
             description: this.data.description ?? "",
             body: this.data.body,
             published: this.data.published ?? false,
+            comments: this.data.comments ?? [],
         };
     };
 }
@@ -99,10 +109,10 @@ export class UpdateArticleRequest
             description: this.data.description,
             body: this.data.body,
             published: this.data.published,
+            comments: this.data.comments ?? [],
         };
     };
 }
-
 
 // problemes sur les composant d'un article, le title, comme le body comme la description
 // devraient tous les 3 etres traités comme des strings strict

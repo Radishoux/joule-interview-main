@@ -69,6 +69,7 @@ const ArticleModel: ModelTest<Article> = {
                 description: "Splendid description",
                 body: "This is the article body",
                 published: true,
+                comments: [],
             };
             ArticleModel.create({ data: article });
         },
