@@ -13,3 +13,5 @@ CREATE TABLE "Article" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Article_title_key" ON "Article"("title");
+
+-- pourquoi ne pas set description comme text not null? comme body et title ?

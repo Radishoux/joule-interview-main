@@ -104,6 +104,25 @@ export class UpdateArticleRequest
 }
 
 
-// nombreux problemes avec la description de l'article :
-// elle est nullable l20, mais non required l61, donc elle peut etre undefined,
-// il faut donc la ?.verifier (optional chaining) ou attendre un potentiel undef ?? l80
+// problemes sur les composant d'un article, le title, comme le body comme la description
+// devraient tous les 3 etres traités comme des strings strict
+
+// on retournerait donc :
+
+// return {
+//     title: this.data.title,
+//     description: this.data.description,
+//     body: this.data.body,
+//     published: this.data.published,
+// }
+
+// voir pour plus de details :
+
+// return {
+//     title: this.data.title ?? "",
+//     description: this.data.description ?? "",
+//     body: this.data.body ?? "",
+//     published: this.data.published ?? false,
+// }
+
+// pour aider a la comprehension du dev, vu que de toute facon l'item ne peut etre null ou undef, le ?? ne sera jamais ateint
